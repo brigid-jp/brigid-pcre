@@ -1,7 +1,7 @@
-.*.swp
 *.d
 *.o
 *.so
+*.swp
 /build/pcre2-*.tar.gz
 /build/pcre2-*/
 /build/pcre2/
