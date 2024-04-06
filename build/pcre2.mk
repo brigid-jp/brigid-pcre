@@ -11,7 +11,7 @@ CPPFLAGS += -DPCRE2_EXP_DECL= -DPCRE2_EXP_DEFN=
 all: $(pcre2_library)
 
 clean:
-	rm -f -r $(pcre2_package) $(pcre2_package).ready pcre
+	rm -f -r $(pcre2_package) $(pcre2_package).ready pcre2
 
 $(pcre2_package).fetch:
 	curl -fLO $(pcre2_url)
