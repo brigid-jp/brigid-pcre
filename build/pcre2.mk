@@ -20,7 +20,5 @@ $(pcre2_package): $(pcre2_archive)
 	gunzip -cd $(pcre2_archive) | tar xf -
 
 $(pcre2_library): $(pcre2_package)
-	@echo $(CPPFLAGS)
-	@echo $(LDFLAGS)
 	(cd $(pcre2_package) && ./configure --prefix="`pwd`/../pcre2" --disable-shared --disable-jit)
 	make -C $(pcre2_package) -j 8 install-nodist_includeHEADERS install-libLTLIBRARIES
