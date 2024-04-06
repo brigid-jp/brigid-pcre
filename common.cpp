@@ -1,6 +1,36 @@
 #include "common.hpp"
 
 namespace brigid {
-  void initialize_common(lua_State*) {
+  namespace {
+    void impl_config(lua_State* L) {
+      auto what = luaL_checkinteger(L, 1);
+      auto size = check(pcre2_config(what, nullptr));
+
+      switch (what) {
+        case PCRE2_CONFIG_JITTARGET:
+        case PCRE2_CONFIG_UNICODE_VERSION:
+        case PCRE2_CONFIG_VERSION:
+          {
+            std::array<char, 128> buffer;
+            if (size > static_cast<int>(buffer.size())) {
+              check(PCRE2_ERROR_NOMEMORY);
+            }
+            size = check(pcre2_config(what, buffer.data()));
+            lua_pushlstring(L, buffer.data(), size - 1);
+          }
+          return;
+      }
+
+      std::uint32_t value = 0;
+      if (size != sizeof(value)) {
+        check(PCRE2_ERROR_NOMEMORY);
+      }
+      check(pcre2_config(what, &value));
+      lua_pushinteger(L, value);
+    }
+  }
+
+  void initialize_common(lua_State* L) {
+    setfield(L, -1, "config", function<impl_config>());
   }
 }
