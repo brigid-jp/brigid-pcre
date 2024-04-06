@@ -6,7 +6,7 @@ pcre2_library = pcre2/lib/libpcre2-8.a
 
 export CFLAGS CPPFLAGS
 CFLAGS += $(ROCK_CFLAGS)
-CPPFLAGS += -DPCRE2_EXP_DECL= -DPCRE2_EXP_DEFN=
+CPPFLAGS += -DPCRE2_EXP_DECL=extern -DPCRE2_EXP_DEFN=extern
 
 all: $(pcre2_library)
 
