@@ -6,6 +6,7 @@ LDLIBS += -lpcre2-8
 VPATH = ..
 TARGET = brigid/pcre2.so
 OBJS = \
+	common.o \
 	module.o
 
 all: $(TARGET)
