@@ -7,6 +7,7 @@ VPATH = ..
 TARGET = brigid/pcre2.so
 OBJS = \
 	common.o \
+	symbols.o \
 	module.o
 
 all: $(TARGET)
