@@ -1,1 +1,1 @@
-# brigid-pcre
+# brigid-pcre2
