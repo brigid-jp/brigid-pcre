@@ -1,4 +1,5 @@
 *
+!*.mk
 !.gitignore
 !Makefile
 !brigid
