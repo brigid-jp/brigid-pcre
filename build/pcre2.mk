@@ -4,9 +4,9 @@ pcre2_archive = $(pcre2_package).tar.gz
 pcre2_url = https://github.com/PCRE2Project/pcre2/releases/download/$(pcre2_package)/$(pcre2_archive)
 pcre2_library = pcre2/lib/libpcre2-8.a
 
-export CFLAGS
+export CFLAGS CPPFLAGS
 CFLAGS += $(ROCK_CFLAGS)
-# CPPFLAGS += -D
+CPPFLAGS += -DPCRE2_EXP_DECL= -DPCRE2_EXP_DEFN=
 
 all: $(pcre2_library)
 
@@ -23,4 +23,4 @@ $(pcre2_library): $(pcre2_package)
 	@echo $(CPPFLAGS)
 	@echo $(LDFLAGS)
 	(cd $(pcre2_package) && ./configure --prefix="`pwd`/../pcre2" --disable-shared --disable-jit)
-	make V=1 -C $(pcre2_package) -j 8 install-nodist_includeHEADERS install-libLTLIBRARIES
+	make -C $(pcre2_package) -j 8 install-nodist_includeHEADERS install-libLTLIBRARIES
