@@ -181,6 +181,674 @@ namespace brigid {
     lua_pushinteger(L, PCRE2_ENDANCHORED);
     lua_setfield(L, -2, "ENDANCHORED");
 #endif
+#ifdef PCRE2_ERROR_ALPHA_ASSERTION_UNKNOWN
+    lua_pushinteger(L, PCRE2_ERROR_ALPHA_ASSERTION_UNKNOWN);
+    lua_setfield(L, -2, "ERROR_ALPHA_ASSERTION_UNKNOWN");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_C_CALLER_DISABLED
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_C_CALLER_DISABLED);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_C_CALLER_DISABLED");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_C_LIBRARY_DISABLED
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_C_LIBRARY_DISABLED);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_C_LIBRARY_DISABLED");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_C_SYNTAX
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_C_SYNTAX);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_C_SYNTAX");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_G_SYNTAX
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_G_SYNTAX);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_G_SYNTAX");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_K_IN_LOOKAROUND
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_K_IN_LOOKAROUND);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_K_IN_LOOKAROUND");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_K_SYNTAX
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_K_SYNTAX);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_K_SYNTAX");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_N_IN_CLASS
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_N_IN_CLASS);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_N_IN_CLASS");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_O_MISSING_BRACE
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_O_MISSING_BRACE);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_O_MISSING_BRACE");
+#endif
+#ifdef PCRE2_ERROR_BACKSLASH_U_CODE_POINT_TOO_BIG
+    lua_pushinteger(L, PCRE2_ERROR_BACKSLASH_U_CODE_POINT_TOO_BIG);
+    lua_setfield(L, -2, "ERROR_BACKSLASH_U_CODE_POINT_TOO_BIG");
+#endif
+#ifdef PCRE2_ERROR_BADDATA
+    lua_pushinteger(L, PCRE2_ERROR_BADDATA);
+    lua_setfield(L, -2, "ERROR_BADDATA");
+#endif
+#ifdef PCRE2_ERROR_BADMAGIC
+    lua_pushinteger(L, PCRE2_ERROR_BADMAGIC);
+    lua_setfield(L, -2, "ERROR_BADMAGIC");
+#endif
+#ifdef PCRE2_ERROR_BADMODE
+    lua_pushinteger(L, PCRE2_ERROR_BADMODE);
+    lua_setfield(L, -2, "ERROR_BADMODE");
+#endif
+#ifdef PCRE2_ERROR_BADOFFSET
+    lua_pushinteger(L, PCRE2_ERROR_BADOFFSET);
+    lua_setfield(L, -2, "ERROR_BADOFFSET");
+#endif
+#ifdef PCRE2_ERROR_BADOFFSETLIMIT
+    lua_pushinteger(L, PCRE2_ERROR_BADOFFSETLIMIT);
+    lua_setfield(L, -2, "ERROR_BADOFFSETLIMIT");
+#endif
+#ifdef PCRE2_ERROR_BADOPTION
+    lua_pushinteger(L, PCRE2_ERROR_BADOPTION);
+    lua_setfield(L, -2, "ERROR_BADOPTION");
+#endif
+#ifdef PCRE2_ERROR_BADREPESCAPE
+    lua_pushinteger(L, PCRE2_ERROR_BADREPESCAPE);
+    lua_setfield(L, -2, "ERROR_BADREPESCAPE");
+#endif
+#ifdef PCRE2_ERROR_BADREPLACEMENT
+    lua_pushinteger(L, PCRE2_ERROR_BADREPLACEMENT);
+    lua_setfield(L, -2, "ERROR_BADREPLACEMENT");
+#endif
+#ifdef PCRE2_ERROR_BADSERIALIZEDDATA
+    lua_pushinteger(L, PCRE2_ERROR_BADSERIALIZEDDATA);
+    lua_setfield(L, -2, "ERROR_BADSERIALIZEDDATA");
+#endif
+#ifdef PCRE2_ERROR_BADSUBSPATTERN
+    lua_pushinteger(L, PCRE2_ERROR_BADSUBSPATTERN);
+    lua_setfield(L, -2, "ERROR_BADSUBSPATTERN");
+#endif
+#ifdef PCRE2_ERROR_BADSUBSTITUTION
+    lua_pushinteger(L, PCRE2_ERROR_BADSUBSTITUTION);
+    lua_setfield(L, -2, "ERROR_BADSUBSTITUTION");
+#endif
+#ifdef PCRE2_ERROR_BADUTFOFFSET
+    lua_pushinteger(L, PCRE2_ERROR_BADUTFOFFSET);
+    lua_setfield(L, -2, "ERROR_BADUTFOFFSET");
+#endif
+#ifdef PCRE2_ERROR_BAD_LITERAL_OPTIONS
+    lua_pushinteger(L, PCRE2_ERROR_BAD_LITERAL_OPTIONS);
+    lua_setfield(L, -2, "ERROR_BAD_LITERAL_OPTIONS");
+#endif
+#ifdef PCRE2_ERROR_BAD_OPTIONS
+    lua_pushinteger(L, PCRE2_ERROR_BAD_OPTIONS);
+    lua_setfield(L, -2, "ERROR_BAD_OPTIONS");
+#endif
+#ifdef PCRE2_ERROR_BAD_RELATIVE_REFERENCE
+    lua_pushinteger(L, PCRE2_ERROR_BAD_RELATIVE_REFERENCE);
+    lua_setfield(L, -2, "ERROR_BAD_RELATIVE_REFERENCE");
+#endif
+#ifdef PCRE2_ERROR_BAD_SUBPATTERN_REFERENCE
+    lua_pushinteger(L, PCRE2_ERROR_BAD_SUBPATTERN_REFERENCE);
+    lua_setfield(L, -2, "ERROR_BAD_SUBPATTERN_REFERENCE");
+#endif
+#ifdef PCRE2_ERROR_CALLOUT
+    lua_pushinteger(L, PCRE2_ERROR_CALLOUT);
+    lua_setfield(L, -2, "ERROR_CALLOUT");
+#endif
+#ifdef PCRE2_ERROR_CALLOUT_BAD_STRING_DELIMITER
+    lua_pushinteger(L, PCRE2_ERROR_CALLOUT_BAD_STRING_DELIMITER);
+    lua_setfield(L, -2, "ERROR_CALLOUT_BAD_STRING_DELIMITER");
+#endif
+#ifdef PCRE2_ERROR_CALLOUT_NO_STRING_DELIMITER
+    lua_pushinteger(L, PCRE2_ERROR_CALLOUT_NO_STRING_DELIMITER);
+    lua_setfield(L, -2, "ERROR_CALLOUT_NO_STRING_DELIMITER");
+#endif
+#ifdef PCRE2_ERROR_CALLOUT_NUMBER_TOO_BIG
+    lua_pushinteger(L, PCRE2_ERROR_CALLOUT_NUMBER_TOO_BIG);
+    lua_setfield(L, -2, "ERROR_CALLOUT_NUMBER_TOO_BIG");
+#endif
+#ifdef PCRE2_ERROR_CALLOUT_STRING_TOO_LONG
+    lua_pushinteger(L, PCRE2_ERROR_CALLOUT_STRING_TOO_LONG);
+    lua_setfield(L, -2, "ERROR_CALLOUT_STRING_TOO_LONG");
+#endif
+#ifdef PCRE2_ERROR_CLASS_INVALID_RANGE
+    lua_pushinteger(L, PCRE2_ERROR_CLASS_INVALID_RANGE);
+    lua_setfield(L, -2, "ERROR_CLASS_INVALID_RANGE");
+#endif
+#ifdef PCRE2_ERROR_CLASS_RANGE_ORDER
+    lua_pushinteger(L, PCRE2_ERROR_CLASS_RANGE_ORDER);
+    lua_setfield(L, -2, "ERROR_CLASS_RANGE_ORDER");
+#endif
+#ifdef PCRE2_ERROR_CODE_POINT_TOO_BIG
+    lua_pushinteger(L, PCRE2_ERROR_CODE_POINT_TOO_BIG);
+    lua_setfield(L, -2, "ERROR_CODE_POINT_TOO_BIG");
+#endif
+#ifdef PCRE2_ERROR_CONDITION_ASSERTION_EXPECTED
+    lua_pushinteger(L, PCRE2_ERROR_CONDITION_ASSERTION_EXPECTED);
+    lua_setfield(L, -2, "ERROR_CONDITION_ASSERTION_EXPECTED");
+#endif
+#ifdef PCRE2_ERROR_CONDITION_ATOMIC_ASSERTION_EXPECTED
+    lua_pushinteger(L, PCRE2_ERROR_CONDITION_ATOMIC_ASSERTION_EXPECTED);
+    lua_setfield(L, -2, "ERROR_CONDITION_ATOMIC_ASSERTION_EXPECTED");
+#endif
+#ifdef PCRE2_ERROR_CONVERT_SYNTAX
+    lua_pushinteger(L, PCRE2_ERROR_CONVERT_SYNTAX);
+    lua_setfield(L, -2, "ERROR_CONVERT_SYNTAX");
+#endif
+#ifdef PCRE2_ERROR_DEFINE_TOO_MANY_BRANCHES
+    lua_pushinteger(L, PCRE2_ERROR_DEFINE_TOO_MANY_BRANCHES);
+    lua_setfield(L, -2, "ERROR_DEFINE_TOO_MANY_BRANCHES");
+#endif
+#ifdef PCRE2_ERROR_DEPTHLIMIT
+    lua_pushinteger(L, PCRE2_ERROR_DEPTHLIMIT);
+    lua_setfield(L, -2, "ERROR_DEPTHLIMIT");
+#endif
+#ifdef PCRE2_ERROR_DFA_BADRESTART
+    lua_pushinteger(L, PCRE2_ERROR_DFA_BADRESTART);
+    lua_setfield(L, -2, "ERROR_DFA_BADRESTART");
+#endif
+#ifdef PCRE2_ERROR_DFA_RECURSE
+    lua_pushinteger(L, PCRE2_ERROR_DFA_RECURSE);
+    lua_setfield(L, -2, "ERROR_DFA_RECURSE");
+#endif
+#ifdef PCRE2_ERROR_DFA_UCOND
+    lua_pushinteger(L, PCRE2_ERROR_DFA_UCOND);
+    lua_setfield(L, -2, "ERROR_DFA_UCOND");
+#endif
+#ifdef PCRE2_ERROR_DFA_UFUNC
+    lua_pushinteger(L, PCRE2_ERROR_DFA_UFUNC);
+    lua_setfield(L, -2, "ERROR_DFA_UFUNC");
+#endif
+#ifdef PCRE2_ERROR_DFA_UINVALID_UTF
+    lua_pushinteger(L, PCRE2_ERROR_DFA_UINVALID_UTF);
+    lua_setfield(L, -2, "ERROR_DFA_UINVALID_UTF");
+#endif
+#ifdef PCRE2_ERROR_DFA_UITEM
+    lua_pushinteger(L, PCRE2_ERROR_DFA_UITEM);
+    lua_setfield(L, -2, "ERROR_DFA_UITEM");
+#endif
+#ifdef PCRE2_ERROR_DFA_WSSIZE
+    lua_pushinteger(L, PCRE2_ERROR_DFA_WSSIZE);
+    lua_setfield(L, -2, "ERROR_DFA_WSSIZE");
+#endif
+#ifdef PCRE2_ERROR_DUPLICATE_SUBPATTERN_NAME
+    lua_pushinteger(L, PCRE2_ERROR_DUPLICATE_SUBPATTERN_NAME);
+    lua_setfield(L, -2, "ERROR_DUPLICATE_SUBPATTERN_NAME");
+#endif
+#ifdef PCRE2_ERROR_END_BACKSLASH
+    lua_pushinteger(L, PCRE2_ERROR_END_BACKSLASH);
+    lua_setfield(L, -2, "ERROR_END_BACKSLASH");
+#endif
+#ifdef PCRE2_ERROR_END_BACKSLASH_C
+    lua_pushinteger(L, PCRE2_ERROR_END_BACKSLASH_C);
+    lua_setfield(L, -2, "ERROR_END_BACKSLASH_C");
+#endif
+#ifdef PCRE2_ERROR_ESCAPE_INVALID_IN_CLASS
+    lua_pushinteger(L, PCRE2_ERROR_ESCAPE_INVALID_IN_CLASS);
+    lua_setfield(L, -2, "ERROR_ESCAPE_INVALID_IN_CLASS");
+#endif
+#ifdef PCRE2_ERROR_ESCAPE_INVALID_IN_VERB
+    lua_pushinteger(L, PCRE2_ERROR_ESCAPE_INVALID_IN_VERB);
+    lua_setfield(L, -2, "ERROR_ESCAPE_INVALID_IN_VERB");
+#endif
+#ifdef PCRE2_ERROR_HEAPLIMIT
+    lua_pushinteger(L, PCRE2_ERROR_HEAPLIMIT);
+    lua_setfield(L, -2, "ERROR_HEAPLIMIT");
+#endif
+#ifdef PCRE2_ERROR_HEAP_FAILED
+    lua_pushinteger(L, PCRE2_ERROR_HEAP_FAILED);
+    lua_setfield(L, -2, "ERROR_HEAP_FAILED");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL);
+    lua_setfield(L, -2, "ERROR_INTERNAL");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_BAD_CODE
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_BAD_CODE);
+    lua_setfield(L, -2, "ERROR_INTERNAL_BAD_CODE");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_BAD_CODE_AUTO_POSSESS
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_BAD_CODE_AUTO_POSSESS);
+    lua_setfield(L, -2, "ERROR_INTERNAL_BAD_CODE_AUTO_POSSESS");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_BAD_CODE_IN_SKIP
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_BAD_CODE_IN_SKIP);
+    lua_setfield(L, -2, "ERROR_INTERNAL_BAD_CODE_IN_SKIP");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_BAD_CODE_LOOKBEHINDS
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_BAD_CODE_LOOKBEHINDS);
+    lua_setfield(L, -2, "ERROR_INTERNAL_BAD_CODE_LOOKBEHINDS");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_CODE_OVERFLOW
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_CODE_OVERFLOW);
+    lua_setfield(L, -2, "ERROR_INTERNAL_CODE_OVERFLOW");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_DUPMATCH
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_DUPMATCH);
+    lua_setfield(L, -2, "ERROR_INTERNAL_DUPMATCH");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_MISSING_SUBPATTERN
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_MISSING_SUBPATTERN);
+    lua_setfield(L, -2, "ERROR_INTERNAL_MISSING_SUBPATTERN");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_OVERRAN_WORKSPACE
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_OVERRAN_WORKSPACE);
+    lua_setfield(L, -2, "ERROR_INTERNAL_OVERRAN_WORKSPACE");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_PARSED_OVERFLOW
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_PARSED_OVERFLOW);
+    lua_setfield(L, -2, "ERROR_INTERNAL_PARSED_OVERFLOW");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_STUDY_ERROR
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_STUDY_ERROR);
+    lua_setfield(L, -2, "ERROR_INTERNAL_STUDY_ERROR");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_UNEXPECTED_REPEAT
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_UNEXPECTED_REPEAT);
+    lua_setfield(L, -2, "ERROR_INTERNAL_UNEXPECTED_REPEAT");
+#endif
+#ifdef PCRE2_ERROR_INTERNAL_UNKNOWN_NEWLINE
+    lua_pushinteger(L, PCRE2_ERROR_INTERNAL_UNKNOWN_NEWLINE);
+    lua_setfield(L, -2, "ERROR_INTERNAL_UNKNOWN_NEWLINE");
+#endif
+#ifdef PCRE2_ERROR_INVALIDOFFSET
+    lua_pushinteger(L, PCRE2_ERROR_INVALIDOFFSET);
+    lua_setfield(L, -2, "ERROR_INVALIDOFFSET");
+#endif
+#ifdef PCRE2_ERROR_INVALID_AFTER_PARENS_QUERY
+    lua_pushinteger(L, PCRE2_ERROR_INVALID_AFTER_PARENS_QUERY);
+    lua_setfield(L, -2, "ERROR_INVALID_AFTER_PARENS_QUERY");
+#endif
+#ifdef PCRE2_ERROR_INVALID_HEXADECIMAL
+    lua_pushinteger(L, PCRE2_ERROR_INVALID_HEXADECIMAL);
+    lua_setfield(L, -2, "ERROR_INVALID_HEXADECIMAL");
+#endif
+#ifdef PCRE2_ERROR_INVALID_HYPHEN_IN_OPTIONS
+    lua_pushinteger(L, PCRE2_ERROR_INVALID_HYPHEN_IN_OPTIONS);
+    lua_setfield(L, -2, "ERROR_INVALID_HYPHEN_IN_OPTIONS");
+#endif
+#ifdef PCRE2_ERROR_INVALID_OCTAL
+    lua_pushinteger(L, PCRE2_ERROR_INVALID_OCTAL);
+    lua_setfield(L, -2, "ERROR_INVALID_OCTAL");
+#endif
+#ifdef PCRE2_ERROR_INVALID_SUBPATTERN_NAME
+    lua_pushinteger(L, PCRE2_ERROR_INVALID_SUBPATTERN_NAME);
+    lua_setfield(L, -2, "ERROR_INVALID_SUBPATTERN_NAME");
+#endif
+#ifdef PCRE2_ERROR_JIT_BADOPTION
+    lua_pushinteger(L, PCRE2_ERROR_JIT_BADOPTION);
+    lua_setfield(L, -2, "ERROR_JIT_BADOPTION");
+#endif
+#ifdef PCRE2_ERROR_JIT_STACKLIMIT
+    lua_pushinteger(L, PCRE2_ERROR_JIT_STACKLIMIT);
+    lua_setfield(L, -2, "ERROR_JIT_STACKLIMIT");
+#endif
+#ifdef PCRE2_ERROR_LOOKBEHIND_INVALID_BACKSLASH_C
+    lua_pushinteger(L, PCRE2_ERROR_LOOKBEHIND_INVALID_BACKSLASH_C);
+    lua_setfield(L, -2, "ERROR_LOOKBEHIND_INVALID_BACKSLASH_C");
+#endif
+#ifdef PCRE2_ERROR_LOOKBEHIND_NOT_FIXED_LENGTH
+    lua_pushinteger(L, PCRE2_ERROR_LOOKBEHIND_NOT_FIXED_LENGTH);
+    lua_setfield(L, -2, "ERROR_LOOKBEHIND_NOT_FIXED_LENGTH");
+#endif
+#ifdef PCRE2_ERROR_LOOKBEHIND_TOO_COMPLICATED
+    lua_pushinteger(L, PCRE2_ERROR_LOOKBEHIND_TOO_COMPLICATED);
+    lua_setfield(L, -2, "ERROR_LOOKBEHIND_TOO_COMPLICATED");
+#endif
+#ifdef PCRE2_ERROR_LOOKBEHIND_TOO_LONG
+    lua_pushinteger(L, PCRE2_ERROR_LOOKBEHIND_TOO_LONG);
+    lua_setfield(L, -2, "ERROR_LOOKBEHIND_TOO_LONG");
+#endif
+#ifdef PCRE2_ERROR_MALFORMED_UNICODE_PROPERTY
+    lua_pushinteger(L, PCRE2_ERROR_MALFORMED_UNICODE_PROPERTY);
+    lua_setfield(L, -2, "ERROR_MALFORMED_UNICODE_PROPERTY");
+#endif
+#ifdef PCRE2_ERROR_MARK_MISSING_ARGUMENT
+    lua_pushinteger(L, PCRE2_ERROR_MARK_MISSING_ARGUMENT);
+    lua_setfield(L, -2, "ERROR_MARK_MISSING_ARGUMENT");
+#endif
+#ifdef PCRE2_ERROR_MATCHLIMIT
+    lua_pushinteger(L, PCRE2_ERROR_MATCHLIMIT);
+    lua_setfield(L, -2, "ERROR_MATCHLIMIT");
+#endif
+#ifdef PCRE2_ERROR_MISSING_CALLOUT_CLOSING
+    lua_pushinteger(L, PCRE2_ERROR_MISSING_CALLOUT_CLOSING);
+    lua_setfield(L, -2, "ERROR_MISSING_CALLOUT_CLOSING");
+#endif
+#ifdef PCRE2_ERROR_MISSING_CLOSING_PARENTHESIS
+    lua_pushinteger(L, PCRE2_ERROR_MISSING_CLOSING_PARENTHESIS);
+    lua_setfield(L, -2, "ERROR_MISSING_CLOSING_PARENTHESIS");
+#endif
+#ifdef PCRE2_ERROR_MISSING_COMMENT_CLOSING
+    lua_pushinteger(L, PCRE2_ERROR_MISSING_COMMENT_CLOSING);
+    lua_setfield(L, -2, "ERROR_MISSING_COMMENT_CLOSING");
+#endif
+#ifdef PCRE2_ERROR_MISSING_CONDITION_CLOSING
+    lua_pushinteger(L, PCRE2_ERROR_MISSING_CONDITION_CLOSING);
+    lua_setfield(L, -2, "ERROR_MISSING_CONDITION_CLOSING");
+#endif
+#ifdef PCRE2_ERROR_MISSING_NAME_TERMINATOR
+    lua_pushinteger(L, PCRE2_ERROR_MISSING_NAME_TERMINATOR);
+    lua_setfield(L, -2, "ERROR_MISSING_NAME_TERMINATOR");
+#endif
+#ifdef PCRE2_ERROR_MISSING_OCTAL_OR_HEX_DIGITS
+    lua_pushinteger(L, PCRE2_ERROR_MISSING_OCTAL_OR_HEX_DIGITS);
+    lua_setfield(L, -2, "ERROR_MISSING_OCTAL_OR_HEX_DIGITS");
+#endif
+#ifdef PCRE2_ERROR_MISSING_SQUARE_BRACKET
+    lua_pushinteger(L, PCRE2_ERROR_MISSING_SQUARE_BRACKET);
+    lua_setfield(L, -2, "ERROR_MISSING_SQUARE_BRACKET");
+#endif
+#ifdef PCRE2_ERROR_MIXEDTABLES
+    lua_pushinteger(L, PCRE2_ERROR_MIXEDTABLES);
+    lua_setfield(L, -2, "ERROR_MIXEDTABLES");
+#endif
+#ifdef PCRE2_ERROR_NOMATCH
+    lua_pushinteger(L, PCRE2_ERROR_NOMATCH);
+    lua_setfield(L, -2, "ERROR_NOMATCH");
+#endif
+#ifdef PCRE2_ERROR_NOMEMORY
+    lua_pushinteger(L, PCRE2_ERROR_NOMEMORY);
+    lua_setfield(L, -2, "ERROR_NOMEMORY");
+#endif
+#ifdef PCRE2_ERROR_NOSUBSTRING
+    lua_pushinteger(L, PCRE2_ERROR_NOSUBSTRING);
+    lua_setfield(L, -2, "ERROR_NOSUBSTRING");
+#endif
+#ifdef PCRE2_ERROR_NOUNIQUESUBSTRING
+    lua_pushinteger(L, PCRE2_ERROR_NOUNIQUESUBSTRING);
+    lua_setfield(L, -2, "ERROR_NOUNIQUESUBSTRING");
+#endif
+#ifdef PCRE2_ERROR_NO_SURROGATES_IN_UTF16
+    lua_pushinteger(L, PCRE2_ERROR_NO_SURROGATES_IN_UTF16);
+    lua_setfield(L, -2, "ERROR_NO_SURROGATES_IN_UTF16");
+#endif
+#ifdef PCRE2_ERROR_NULL
+    lua_pushinteger(L, PCRE2_ERROR_NULL);
+    lua_setfield(L, -2, "ERROR_NULL");
+#endif
+#ifdef PCRE2_ERROR_NULL_PATTERN
+    lua_pushinteger(L, PCRE2_ERROR_NULL_PATTERN);
+    lua_setfield(L, -2, "ERROR_NULL_PATTERN");
+#endif
+#ifdef PCRE2_ERROR_OCTAL_BYTE_TOO_BIG
+    lua_pushinteger(L, PCRE2_ERROR_OCTAL_BYTE_TOO_BIG);
+    lua_setfield(L, -2, "ERROR_OCTAL_BYTE_TOO_BIG");
+#endif
+#ifdef PCRE2_ERROR_PARENS_QUERY_R_MISSING_CLOSING
+    lua_pushinteger(L, PCRE2_ERROR_PARENS_QUERY_R_MISSING_CLOSING);
+    lua_setfield(L, -2, "ERROR_PARENS_QUERY_R_MISSING_CLOSING");
+#endif
+#ifdef PCRE2_ERROR_PARENTHESES_NEST_TOO_DEEP
+    lua_pushinteger(L, PCRE2_ERROR_PARENTHESES_NEST_TOO_DEEP);
+    lua_setfield(L, -2, "ERROR_PARENTHESES_NEST_TOO_DEEP");
+#endif
+#ifdef PCRE2_ERROR_PARENTHESES_STACK_CHECK
+    lua_pushinteger(L, PCRE2_ERROR_PARENTHESES_STACK_CHECK);
+    lua_setfield(L, -2, "ERROR_PARENTHESES_STACK_CHECK");
+#endif
+#ifdef PCRE2_ERROR_PARTIAL
+    lua_pushinteger(L, PCRE2_ERROR_PARTIAL);
+    lua_setfield(L, -2, "ERROR_PARTIAL");
+#endif
+#ifdef PCRE2_ERROR_PATTERN_STRING_TOO_LONG
+    lua_pushinteger(L, PCRE2_ERROR_PATTERN_STRING_TOO_LONG);
+    lua_setfield(L, -2, "ERROR_PATTERN_STRING_TOO_LONG");
+#endif
+#ifdef PCRE2_ERROR_PATTERN_TOO_COMPLICATED
+    lua_pushinteger(L, PCRE2_ERROR_PATTERN_TOO_COMPLICATED);
+    lua_setfield(L, -2, "ERROR_PATTERN_TOO_COMPLICATED");
+#endif
+#ifdef PCRE2_ERROR_PATTERN_TOO_LARGE
+    lua_pushinteger(L, PCRE2_ERROR_PATTERN_TOO_LARGE);
+    lua_setfield(L, -2, "ERROR_PATTERN_TOO_LARGE");
+#endif
+#ifdef PCRE2_ERROR_POSIX_CLASS_NOT_IN_CLASS
+    lua_pushinteger(L, PCRE2_ERROR_POSIX_CLASS_NOT_IN_CLASS);
+    lua_setfield(L, -2, "ERROR_POSIX_CLASS_NOT_IN_CLASS");
+#endif
+#ifdef PCRE2_ERROR_POSIX_NO_SUPPORT_COLLATING
+    lua_pushinteger(L, PCRE2_ERROR_POSIX_NO_SUPPORT_COLLATING);
+    lua_setfield(L, -2, "ERROR_POSIX_NO_SUPPORT_COLLATING");
+#endif
+#ifdef PCRE2_ERROR_QUANTIFIER_INVALID
+    lua_pushinteger(L, PCRE2_ERROR_QUANTIFIER_INVALID);
+    lua_setfield(L, -2, "ERROR_QUANTIFIER_INVALID");
+#endif
+#ifdef PCRE2_ERROR_QUANTIFIER_OUT_OF_ORDER
+    lua_pushinteger(L, PCRE2_ERROR_QUANTIFIER_OUT_OF_ORDER);
+    lua_setfield(L, -2, "ERROR_QUANTIFIER_OUT_OF_ORDER");
+#endif
+#ifdef PCRE2_ERROR_QUANTIFIER_TOO_BIG
+    lua_pushinteger(L, PCRE2_ERROR_QUANTIFIER_TOO_BIG);
+    lua_setfield(L, -2, "ERROR_QUANTIFIER_TOO_BIG");
+#endif
+#ifdef PCRE2_ERROR_QUERY_BARJX_NEST_TOO_DEEP
+    lua_pushinteger(L, PCRE2_ERROR_QUERY_BARJX_NEST_TOO_DEEP);
+    lua_setfield(L, -2, "ERROR_QUERY_BARJX_NEST_TOO_DEEP");
+#endif
+#ifdef PCRE2_ERROR_RECURSELOOP
+    lua_pushinteger(L, PCRE2_ERROR_RECURSELOOP);
+    lua_setfield(L, -2, "ERROR_RECURSELOOP");
+#endif
+#ifdef PCRE2_ERROR_RECURSIONLIMIT
+    lua_pushinteger(L, PCRE2_ERROR_RECURSIONLIMIT);
+    lua_setfield(L, -2, "ERROR_RECURSIONLIMIT");
+#endif
+#ifdef PCRE2_ERROR_REPMISSINGBRACE
+    lua_pushinteger(L, PCRE2_ERROR_REPMISSINGBRACE);
+    lua_setfield(L, -2, "ERROR_REPMISSINGBRACE");
+#endif
+#ifdef PCRE2_ERROR_SCRIPT_RUN_NOT_AVAILABLE
+    lua_pushinteger(L, PCRE2_ERROR_SCRIPT_RUN_NOT_AVAILABLE);
+    lua_setfield(L, -2, "ERROR_SCRIPT_RUN_NOT_AVAILABLE");
+#endif
+#ifdef PCRE2_ERROR_SUBPATTERN_NAMES_MISMATCH
+    lua_pushinteger(L, PCRE2_ERROR_SUBPATTERN_NAMES_MISMATCH);
+    lua_setfield(L, -2, "ERROR_SUBPATTERN_NAMES_MISMATCH");
+#endif
+#ifdef PCRE2_ERROR_SUBPATTERN_NAME_EXPECTED
+    lua_pushinteger(L, PCRE2_ERROR_SUBPATTERN_NAME_EXPECTED);
+    lua_setfield(L, -2, "ERROR_SUBPATTERN_NAME_EXPECTED");
+#endif
+#ifdef PCRE2_ERROR_SUBPATTERN_NAME_TOO_LONG
+    lua_pushinteger(L, PCRE2_ERROR_SUBPATTERN_NAME_TOO_LONG);
+    lua_setfield(L, -2, "ERROR_SUBPATTERN_NAME_TOO_LONG");
+#endif
+#ifdef PCRE2_ERROR_SUBPATTERN_NUMBER_TOO_BIG
+    lua_pushinteger(L, PCRE2_ERROR_SUBPATTERN_NUMBER_TOO_BIG);
+    lua_setfield(L, -2, "ERROR_SUBPATTERN_NUMBER_TOO_BIG");
+#endif
+#ifdef PCRE2_ERROR_SUPPORTED_ONLY_IN_UNICODE
+    lua_pushinteger(L, PCRE2_ERROR_SUPPORTED_ONLY_IN_UNICODE);
+    lua_setfield(L, -2, "ERROR_SUPPORTED_ONLY_IN_UNICODE");
+#endif
+#ifdef PCRE2_ERROR_TOOMANYREPLACE
+    lua_pushinteger(L, PCRE2_ERROR_TOOMANYREPLACE);
+    lua_setfield(L, -2, "ERROR_TOOMANYREPLACE");
+#endif
+#ifdef PCRE2_ERROR_TOO_MANY_CAPTURES
+    lua_pushinteger(L, PCRE2_ERROR_TOO_MANY_CAPTURES);
+    lua_setfield(L, -2, "ERROR_TOO_MANY_CAPTURES");
+#endif
+#ifdef PCRE2_ERROR_TOO_MANY_CONDITION_BRANCHES
+    lua_pushinteger(L, PCRE2_ERROR_TOO_MANY_CONDITION_BRANCHES);
+    lua_setfield(L, -2, "ERROR_TOO_MANY_CONDITION_BRANCHES");
+#endif
+#ifdef PCRE2_ERROR_TOO_MANY_NAMED_SUBPATTERNS
+    lua_pushinteger(L, PCRE2_ERROR_TOO_MANY_NAMED_SUBPATTERNS);
+    lua_setfield(L, -2, "ERROR_TOO_MANY_NAMED_SUBPATTERNS");
+#endif
+#ifdef PCRE2_ERROR_UCP_IS_DISABLED
+    lua_pushinteger(L, PCRE2_ERROR_UCP_IS_DISABLED);
+    lua_setfield(L, -2, "ERROR_UCP_IS_DISABLED");
+#endif
+#ifdef PCRE2_ERROR_UNAVAILABLE
+    lua_pushinteger(L, PCRE2_ERROR_UNAVAILABLE);
+    lua_setfield(L, -2, "ERROR_UNAVAILABLE");
+#endif
+#ifdef PCRE2_ERROR_UNICODE_DISALLOWED_CODE_POINT
+    lua_pushinteger(L, PCRE2_ERROR_UNICODE_DISALLOWED_CODE_POINT);
+    lua_setfield(L, -2, "ERROR_UNICODE_DISALLOWED_CODE_POINT");
+#endif
+#ifdef PCRE2_ERROR_UNICODE_NOT_SUPPORTED
+    lua_pushinteger(L, PCRE2_ERROR_UNICODE_NOT_SUPPORTED);
+    lua_setfield(L, -2, "ERROR_UNICODE_NOT_SUPPORTED");
+#endif
+#ifdef PCRE2_ERROR_UNICODE_PROPERTIES_UNAVAILABLE
+    lua_pushinteger(L, PCRE2_ERROR_UNICODE_PROPERTIES_UNAVAILABLE);
+    lua_setfield(L, -2, "ERROR_UNICODE_PROPERTIES_UNAVAILABLE");
+#endif
+#ifdef PCRE2_ERROR_UNKNOWN_ESCAPE
+    lua_pushinteger(L, PCRE2_ERROR_UNKNOWN_ESCAPE);
+    lua_setfield(L, -2, "ERROR_UNKNOWN_ESCAPE");
+#endif
+#ifdef PCRE2_ERROR_UNKNOWN_POSIX_CLASS
+    lua_pushinteger(L, PCRE2_ERROR_UNKNOWN_POSIX_CLASS);
+    lua_setfield(L, -2, "ERROR_UNKNOWN_POSIX_CLASS");
+#endif
+#ifdef PCRE2_ERROR_UNKNOWN_UNICODE_PROPERTY
+    lua_pushinteger(L, PCRE2_ERROR_UNKNOWN_UNICODE_PROPERTY);
+    lua_setfield(L, -2, "ERROR_UNKNOWN_UNICODE_PROPERTY");
+#endif
+#ifdef PCRE2_ERROR_UNMATCHED_CLOSING_PARENTHESIS
+    lua_pushinteger(L, PCRE2_ERROR_UNMATCHED_CLOSING_PARENTHESIS);
+    lua_setfield(L, -2, "ERROR_UNMATCHED_CLOSING_PARENTHESIS");
+#endif
+#ifdef PCRE2_ERROR_UNRECOGNIZED_AFTER_QUERY_P
+    lua_pushinteger(L, PCRE2_ERROR_UNRECOGNIZED_AFTER_QUERY_P);
+    lua_setfield(L, -2, "ERROR_UNRECOGNIZED_AFTER_QUERY_P");
+#endif
+#ifdef PCRE2_ERROR_UNSET
+    lua_pushinteger(L, PCRE2_ERROR_UNSET);
+    lua_setfield(L, -2, "ERROR_UNSET");
+#endif
+#ifdef PCRE2_ERROR_UNSUPPORTED_ESCAPE_SEQUENCE
+    lua_pushinteger(L, PCRE2_ERROR_UNSUPPORTED_ESCAPE_SEQUENCE);
+    lua_setfield(L, -2, "ERROR_UNSUPPORTED_ESCAPE_SEQUENCE");
+#endif
+#ifdef PCRE2_ERROR_UTF16_ERR1
+    lua_pushinteger(L, PCRE2_ERROR_UTF16_ERR1);
+    lua_setfield(L, -2, "ERROR_UTF16_ERR1");
+#endif
+#ifdef PCRE2_ERROR_UTF16_ERR2
+    lua_pushinteger(L, PCRE2_ERROR_UTF16_ERR2);
+    lua_setfield(L, -2, "ERROR_UTF16_ERR2");
+#endif
+#ifdef PCRE2_ERROR_UTF16_ERR3
+    lua_pushinteger(L, PCRE2_ERROR_UTF16_ERR3);
+    lua_setfield(L, -2, "ERROR_UTF16_ERR3");
+#endif
+#ifdef PCRE2_ERROR_UTF32_ERR1
+    lua_pushinteger(L, PCRE2_ERROR_UTF32_ERR1);
+    lua_setfield(L, -2, "ERROR_UTF32_ERR1");
+#endif
+#ifdef PCRE2_ERROR_UTF32_ERR2
+    lua_pushinteger(L, PCRE2_ERROR_UTF32_ERR2);
+    lua_setfield(L, -2, "ERROR_UTF32_ERR2");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR1
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR1);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR1");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR10
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR10);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR10");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR11
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR11);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR11");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR12
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR12);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR12");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR13
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR13);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR13");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR14
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR14);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR14");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR15
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR15);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR15");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR16
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR16);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR16");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR17
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR17);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR17");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR18
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR18);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR18");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR19
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR19);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR19");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR2
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR2);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR2");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR20
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR20);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR20");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR21
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR21);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR21");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR3
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR3);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR3");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR4
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR4);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR4");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR5
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR5);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR5");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR6
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR6);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR6");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR7
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR7);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR7");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR8
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR8);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR8");
+#endif
+#ifdef PCRE2_ERROR_UTF8_ERR9
+    lua_pushinteger(L, PCRE2_ERROR_UTF8_ERR9);
+    lua_setfield(L, -2, "ERROR_UTF8_ERR9");
+#endif
+#ifdef PCRE2_ERROR_UTF_IS_DISABLED
+    lua_pushinteger(L, PCRE2_ERROR_UTF_IS_DISABLED);
+    lua_setfield(L, -2, "ERROR_UTF_IS_DISABLED");
+#endif
+#ifdef PCRE2_ERROR_VERB_ARGUMENT_NOT_ALLOWED
+    lua_pushinteger(L, PCRE2_ERROR_VERB_ARGUMENT_NOT_ALLOWED);
+    lua_setfield(L, -2, "ERROR_VERB_ARGUMENT_NOT_ALLOWED");
+#endif
+#ifdef PCRE2_ERROR_VERB_NAME_TOO_LONG
+    lua_pushinteger(L, PCRE2_ERROR_VERB_NAME_TOO_LONG);
+    lua_setfield(L, -2, "ERROR_VERB_NAME_TOO_LONG");
+#endif
+#ifdef PCRE2_ERROR_VERB_UNKNOWN
+    lua_pushinteger(L, PCRE2_ERROR_VERB_UNKNOWN);
+    lua_setfield(L, -2, "ERROR_VERB_UNKNOWN");
+#endif
+#ifdef PCRE2_ERROR_VERSION_CONDITION_SYNTAX
+    lua_pushinteger(L, PCRE2_ERROR_VERSION_CONDITION_SYNTAX);
+    lua_setfield(L, -2, "ERROR_VERSION_CONDITION_SYNTAX");
+#endif
+#ifdef PCRE2_ERROR_ZERO_RELATIVE_REFERENCE
+    lua_pushinteger(L, PCRE2_ERROR_ZERO_RELATIVE_REFERENCE);
+    lua_setfield(L, -2, "ERROR_ZERO_RELATIVE_REFERENCE");
+#endif
 #ifdef PCRE2_EXTENDED
     lua_pushinteger(L, PCRE2_EXTENDED);
     lua_setfield(L, -2, "EXTENDED");

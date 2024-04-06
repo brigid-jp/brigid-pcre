@@ -11,9 +11,7 @@ for line in source:gmatch "(.-)\n" do
   if name then
     -- 整数定数
     if value:find "^%d+$" or value:find "^0x%x+u?$" or value:find "^%(%-%d+%)$" then
-      if not name:find "^ERROR" then
-        names[#names + 1] = name
-      end
+      names[#names + 1] = name
     elseif value:find "^%d+%-%d+%-%d+$" then
       assert(name == "DATE")
     end
