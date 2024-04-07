@@ -6,7 +6,7 @@ namespace brigid {
     using substring_t = std::unique_ptr<std::uint8_t, decltype(&pcre2_substring_free)>;
 
     void impl_construct(lua_State* L) {
-      auto code = code_t::checkudata(L, 1);
+      auto code = code_t::checkudata(L, 2);
       auto self = self_t::make_unique(pcre2_match_data_create_from_pattern(
           code,
           nullptr));
