@@ -1,7 +1,7 @@
 package = "brigid-pcre2"
 version = "1.0-1"
 source = {
-  url = "https://github.com/brigid-jp/brigid-pcre2/releases/download/v1.0/brigid-pcre2-1.0.zip";
+  url = "https://github.com/brigid-jp/brigid-pcre2/releases/download/v1.0/brigid-pcre2-1.0.tar.gz";
 }
 description = {
   summary = "Lua bindings for PCRE2";
