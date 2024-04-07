@@ -8,6 +8,7 @@ TARGET = brigid/pcre2.so
 OBJS = \
 	common.o \
 	code.o \
+	match_data.o \
 	symbols.o \
 	module.o
 

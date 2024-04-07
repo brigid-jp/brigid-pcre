@@ -9,6 +9,7 @@ function class.assume_fail(f, ...)
   end
   assert(not result)
   assert(message)
+  return message
 end
 
 return class

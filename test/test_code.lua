@@ -4,4 +4,5 @@ local test = require "test"
 local regex = assert(pcre2.compile "foo(bar)")
 assert(getmetatable(regex).__name == "brigid.pcre2.code")
 
-test.assume_fail(pcre2.compile, "foo)bar(")
+local message = test.assume_fail(pcre2.compile, "foo)bar(")
+assert(message:find "at offset 4$")

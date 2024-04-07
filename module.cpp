@@ -6,11 +6,13 @@
 namespace brigid {
   void initialize_common(lua_State*);
   void initialize_code(lua_State*);
+  void initialize_match_data(lua_State*);
   void initialize_symbols(lua_State*);
 
   void initialize(lua_State* L) {
     initialize_common(L);
     initialize_code(L);
+    initialize_match_data(L);
     initialize_symbols(L);
   }
 }

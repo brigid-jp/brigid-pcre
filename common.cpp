@@ -31,7 +31,7 @@ namespace brigid {
 
     void impl_compile(lua_State* L) {
       auto pattern = checkstring(L, 1);
-      auto options = luaL_optinteger (L, 2, 0);
+      auto options = luaL_optinteger(L, 2, 0);
       int error_code = 0;
       std::size_t error_offset = 0;
 
@@ -44,7 +44,7 @@ namespace brigid {
           nullptr));
       if (!result) {
         std::ostringstream out;
-        out << get_error_message(error_code) << " at offset " << error_offset;
+        out << get_error_message(error_code) << " at offset " << error_offset + 1;
         throw pcre2_error(error_code, out.str());
       }
       code_t::newuserdata(L, std::move(result));
