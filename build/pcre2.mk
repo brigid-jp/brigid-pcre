@@ -5,7 +5,7 @@ pcre2_url = https://github.com/PCRE2Project/pcre2/releases/download/$(pcre2_pack
 pcre2_library = pcre2/lib/libpcre2-8.a
 
 export CFLAGS CPPFLAGS
-CFLAGS += $(ROCK_CFLAGS)
+CFLAGS += -std=c99 $(ROCK_CFLAGS)
 CPPFLAGS += -DPCRE2_EXP_DECL=extern -DPCRE2_EXP_DEFN=extern
 
 all: $(pcre2_library)
