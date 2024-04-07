@@ -5,8 +5,8 @@ local regex = assert(pcre2.compile[[(?<year>\d+)/(?<month>\d+)/(?<day>\d+)]])
 assert(regex:info(pcre2.INFO_CAPTURECOUNT) == 3)
 assert(regex:info(pcre2.INFO_NAMECOUNT) == 3)
 
-local result, match = regex:match "abc2024/04/01def"
-assert(result == 4)
+local match, n = regex:match "abc2024/04/01def"
+assert(n == 4)
 assert(match:get_by_number(0) == "2024/04/01")
 assert(match:get_by_number(1) == "2024")
 assert(match:get_by_number(2) == "04")

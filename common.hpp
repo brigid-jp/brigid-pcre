@@ -16,6 +16,7 @@
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <vector>
 
 namespace brigid {
   inline std::string get_error_message(int code) {
@@ -89,6 +90,7 @@ namespace brigid {
 
   class string_reference {
   public:
+    string_reference() : data_(), size_() {}
     string_reference(const char* data, std::size_t size) : data_(data), size_(size) {}
     const char* data() const { return data_; }
     const std::uint8_t* data_u8() const { return reinterpret_cast<const std::uint8_t*>(data_); }
