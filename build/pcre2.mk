@@ -11,6 +11,7 @@ CPPFLAGS += -DPCRE2_EXP_DECL=extern -DPCRE2_EXP_DEFN=extern
 all: $(pcre2_library)
 
 archive: $(pcre2_package).ready
+	rm -f -r $(pcre2_archive) $(pcre2_package)/doc $(pcre2_package)/src/sljit $(pcre2_package)/testdata
 
 clean:
 	rm -f -r $(pcre2_package) $(pcre2_package).ready pcre2
