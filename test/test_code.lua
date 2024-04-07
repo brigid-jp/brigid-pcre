@@ -16,6 +16,14 @@ local regex = assert(pcre2.compile[[(?<year>\d+)/(?<month>\d+)/(?<day>\d+)]])
 assert(regex:info(pcre2.INFO_CAPTURECOUNT) == 3)
 assert(regex:info(pcre2.INFO_NAMECOUNT) == 3)
 
-local result, match = regex:match "2024/04/01"
+local result, match = regex:match "abc2024/04/01def"
 assert(result == 4)
-
+assert(match:get_bynumber(0) == "2024/04/01")
+assert(match:get_bynumber(1) == "2024")
+assert(match:get_bynumber(2) == "04")
+assert(match:get_bynumber(3) == "01")
+test.assume_fail(function () return match:get_bynumber(4) end)
+assert(match:get_byname "year" == "2024")
+assert(match:get_byname "month" == "04")
+assert(match:get_byname "day" == "01")
+test.assume_fail(function () return match:get_byname "" end)
