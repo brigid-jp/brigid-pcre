@@ -2,6 +2,13 @@
 
 namespace brigid {
   namespace {
+    void impl_get_version(lua_State* L) {
+      static constexpr const char* version =
+#include "brigid-pcre2-version"
+      ;
+      lua_pushstring(L, version);
+    }
+
     void impl_config(lua_State* L) {
       auto what = luaL_checkinteger(L, 1);
       auto size = check(pcre2_config(what, nullptr));
@@ -52,6 +59,7 @@ namespace brigid {
   }
 
   void initialize_common(lua_State* L) {
+    setfield(L, -1, "get_version", function<impl_get_version>());
     setfield(L, -1, "config", function<impl_config>());
     setfield(L, -1, "compile", function<impl_compile>());
   }

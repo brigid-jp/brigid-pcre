@@ -11,3 +11,9 @@ assert(config_version == source_version)
 
 assert(pcre2.config(pcre2.CONFIG_JIT) == 0)
 test.assume_fail(pcre2.config, pcre2.CONFIG_JITTARGET)
+
+local version = pcre2.get_version()
+if test.debug then
+  print("version: "..version)
+end
+assert(version:match "^%d+%.%d+$")
