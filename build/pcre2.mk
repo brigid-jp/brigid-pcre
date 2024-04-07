@@ -10,6 +10,8 @@ CPPFLAGS += -DPCRE2_EXP_DECL=extern -DPCRE2_EXP_DEFN=extern
 
 all: $(pcre2_library)
 
+archive: $(pcre2_package).ready
+
 clean:
 	rm -f -r $(pcre2_package) $(pcre2_package).ready pcre2
 
