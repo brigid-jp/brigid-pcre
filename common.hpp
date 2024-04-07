@@ -7,15 +7,19 @@
 #define PCRE2_CODE_UNIT_WIDTH 8
 #include <pcre2.h>
 
+#include <cstddef>
 #include <cstdint>
 #include <array>
 #include <exception>
+#include <memory>
+#include <sstream>
 #include <stdexcept>
+#include <string>
 
 namespace brigid {
   class pcre2_error : public std::runtime_error {
   public:
-    pcre2_error(int code, const char* what) : std::runtime_error(what), code_(code) {}
+    pcre2_error(int code, const std::string& what) : std::runtime_error(what), code_(code) {}
     int code() const noexcept { return code_; }
   private:
     int code_;
@@ -52,6 +56,17 @@ namespace brigid {
     }
   };
 
+  class string_reference {
+  public:
+    string_reference(const char* data, std::size_t size) : data_(data), size_(size) {}
+    const char* data() const { return data_; }
+    const std::uint8_t* data_u8() const { return reinterpret_cast<const std::uint8_t*>(data_); }
+    std::size_t size() const { return size_; }
+  private:
+    const char* data_;
+    std::size_t size_;
+  };
+
   inline int absindex(lua_State* L, int index) {
 #if LUA_VERSION_NUM >= 502
     return lua_absindex(L, index);
@@ -63,6 +78,16 @@ namespace brigid {
 #endif
   }
 
+  inline string_reference checkstring(lua_State* L, int arg) {
+    std::size_t size = 0;
+    const auto* data = luaL_checklstring(L, arg, &size);
+    return string_reference(data, size);
+  }
+
+  inline void pushstring(lua_State* L, const string_reference& source) {
+    lua_pushlstring(L, source.data(), source.size());
+  }
+
   template <void (*T)(lua_State*)>
   inline void setfield(lua_State* L, int index, const char* key, function<T>) {
     index = absindex(L, index);
@@ -70,15 +95,94 @@ namespace brigid {
     lua_setfield(L, index, key);
   }
 
+  inline int newmetatable(lua_State* L, const char* name) {
+#if LUA_VERSION_NUM >= 503
+    return luaL_newmetatable(L, name);
+#else
+    if (luaL_newmetatable(L, name) == 0) {
+      return 0;
+    }
+    lua_pushstring(L, name);
+    lua_setfield(L, -2, "__name");
+    return 1;
+#endif
+  }
+
+  inline void setmetatable(lua_State* L, const char* name) {
+#if LUA_VERSION_NUM >= 502
+    luaL_setmetatable(L, name);
+#else
+    luaL_getmetatable(L, name);
+    lua_setmetatable(L, -2);
+#endif
+  }
+
+  inline void* testudata(lua_State* L, int index, const char* name) {
+#if LUA_VERSION_NUM >= 502
+    return luaL_testudata(L, index, name);
+#else
+    if (void* data = lua_touserdata(L, index)) {
+      if (lua_getmetatable(L, index)) {
+        luaL_getmetatable(L, name);
+        if (!lua_rawequal(L, -1, -2)) {
+          data = nullptr;
+        }
+        lua_pop(L, 2);
+      }
+      return data;
+    }
+    return nullptr;
+#endif
+  }
+
+  inline std::string get_error_message(int code) {
+    std::array<std::uint8_t, 128> buffer;
+    int result = pcre2_get_error_message(code, buffer.data(), buffer.size());
+    if (result == PCRE2_ERROR_BADDATA) {
+      return get_error_message(result);
+    }
+    return reinterpret_cast<const char*>(buffer.data());
+  }
+
   inline int check(int result) {
     if (result < 0) {
-      std::array<std::uint8_t, 128> buffer;
-      if (pcre2_get_error_message(result, buffer.data(), buffer.size()) != PCRE2_ERROR_BADDATA) {
-        throw pcre2_error(result, reinterpret_cast<const char*>(buffer.data()));
-      }
+      throw pcre2_error(result, get_error_message(result));
     }
     return result;
   }
+
+  template <class U, class T, void (*T_free)(T*)>
+  struct handle_t {
+    static std::unique_ptr<T, void (*)(T*)> make_unique(T* handle) {
+      return std::unique_ptr<T, void (*)(T*)>(handle, T_free);
+    }
+
+    static void newuserdata(lua_State* L, std::unique_ptr<T, void (*)(T*)>&& ptr) {
+      T** data = static_cast<T**>(lua_newuserdata(L, sizeof(T*)));
+      *data = ptr.release();
+      setmetatable(L, U::name);
+    }
+
+    static T* check(lua_State* L, int arg) {
+      return *static_cast<T**>(luaL_checkudata(L, arg, U::name));
+    }
+
+    static void impl_destructor(lua_State* L) {
+      if (T** data = static_cast<T**>(testudata(L, 1, U::name))) {
+        if (*data) {
+          T_free(*data);
+          *data = nullptr;
+        }
+      }
+    }
+
+    using destructor = function<impl_destructor>;
+  };
+
+  class code_t : public handle_t<code_t, pcre2_code, pcre2_code_free> {
+  public:
+    static constexpr const char* name = "brigid.pcre2.code";
+  };
 }
 
 #endif
