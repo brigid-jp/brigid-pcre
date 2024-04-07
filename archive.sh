@@ -2,7 +2,6 @@
 
 version=`cat brigid-pcre2-version`
 version=`expr "X$version" : 'X"\([^"]*\)"'`
-echo "$version"
 prefix=brigid-pcre2-$version
 
 git archive --prefix "$prefix/" HEAD | (cd build && tar xf -)

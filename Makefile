@@ -7,6 +7,9 @@ all:
 check:
 	./test.sh
 
+archive:
+	./archive.sh
+
 clean:
 	make -C build clean
 
