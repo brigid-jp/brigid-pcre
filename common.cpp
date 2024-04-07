@@ -13,7 +13,7 @@ namespace brigid {
           {
             std::array<char, 128> buffer;
             if (size > static_cast<int>(buffer.size())) {
-              check(PCRE2_ERROR_NOMEMORY);
+              throw pcre2_error(PCRE2_ERROR_NOMEMORY);
             }
             size = check(pcre2_config(what, buffer.data()));
             lua_pushlstring(L, buffer.data(), size - 1);
@@ -23,7 +23,7 @@ namespace brigid {
 
       std::uint32_t value = 0;
       if (size != sizeof(value)) {
-        check(PCRE2_ERROR_NOMEMORY);
+        throw pcre2_error(PCRE2_ERROR_NOMEMORY);
       }
       check(pcre2_config(what, &value));
       lua_pushinteger(L, value);

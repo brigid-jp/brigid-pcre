@@ -9,6 +9,7 @@
 
 #include <cstddef>
 #include <cstdint>
+#include <algorithm>
 #include <array>
 #include <exception>
 #include <memory>
@@ -17,8 +18,18 @@
 #include <string>
 
 namespace brigid {
+  inline std::string get_error_message(int code) {
+    std::array<std::uint8_t, 128> buffer;
+    int result = pcre2_get_error_message(code, buffer.data(), buffer.size());
+    if (result == PCRE2_ERROR_BADDATA) {
+      return get_error_message(result);
+    }
+    return reinterpret_cast<const char*>(buffer.data());
+  }
+
   class pcre2_error : public std::runtime_error {
   public:
+    explicit pcre2_error(int code) : std::runtime_error(get_error_message(code)), code_(code) {}
     pcre2_error(int code, const std::string& what) : std::runtime_error(what), code_(code) {}
     int code() const noexcept { return code_; }
   private:
@@ -162,18 +173,9 @@ namespace brigid {
 #endif
   }
 
-  inline std::string get_error_message(int code) {
-    std::array<std::uint8_t, 128> buffer;
-    int result = pcre2_get_error_message(code, buffer.data(), buffer.size());
-    if (result == PCRE2_ERROR_BADDATA) {
-      return get_error_message(result);
-    }
-    return reinterpret_cast<const char*>(buffer.data());
-  }
-
   inline int check(int result) {
     if (result < 0) {
-      throw pcre2_error(result, get_error_message(result));
+      throw pcre2_error(result);
     }
     return result;
   }
@@ -196,7 +198,10 @@ namespace brigid {
     }
 
     static T* testudata(lua_State* L, int index) {
-      return *static_cast<T**>(brigid::testudata(L, index, U::name));
+      if (T** data = static_cast<T**>(brigid::testudata(L, index, U::name))) {
+        return *data;
+      }
+      return nullptr;
     }
 
     static void impl_destructor(lua_State* L) {
