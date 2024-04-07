@@ -4,7 +4,13 @@ all:
 	make -C build -f pcre2.mk
 	make -C build -j 8
 
+check:
+	./test.sh
+
 clean:
+	make -C build clean
+
+clean-all:
 	make -C build -f pcre2.mk clean
 	make -C build clean
 
