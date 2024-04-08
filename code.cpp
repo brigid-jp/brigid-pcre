@@ -58,34 +58,22 @@ namespace brigid {
     // regex:match(subject, offset, match)
     // regex:match(subject, offset, options)
     // regex:match(subject, offset, options, match)
-    int impl_match(lua_State* L) {
+    void impl_match(lua_State* L) {
       auto self = self_t::checkudata(L, 1);
       auto subject = checkstring(L, 2);
       lua_Integer offset = 1;
       std::uint32_t options = 0;
       pcre2_match_data* match = nullptr;
-      int match_index = 0;
 
-      if ((match = match_data_t::testudata(L, 3))) {
-        match_index = 3;
-      } else if ((match = match_data_t::testudata(L, 4))) {
+      if (lua_type(L, 3) == LUA_TUSERDATA) {
+        match = match_data_t::testudata(L, 3);
+      } else if (lua_type(L, 4) == LUA_TUSERDATA) {
         offset = luaL_optinteger(L, 3, offset);
-        match_index = 4;
-      } else if ((match = match_data_t::testudata(L, 5))) {
-        offset = luaL_optinteger(L, 3, offset);
-        options = luaL_optinteger(L, 4, options);
-        match_index = 5;
+        match = match_data_t::testudata(L, 4);
       } else {
         offset = luaL_optinteger(L, 3, offset);
         options = luaL_optinteger(L, 4, options);
-        auto match_data = match_data_t::make_unique(pcre2_match_data_create_from_pattern(
-            self,
-            nullptr));
-        if (!match_data) {
-          throw std::runtime_error("could not pcre2_match_data_create_from_pattern");
-        }
-        match = match_data_t::newuserdata(L, std::move(match_data));
-        match_index = lua_gettop(L);
+        match = match_data_t::testudata(L, 5);
       }
 
       offset = translate_offset(offset, subject.size());
@@ -99,9 +87,7 @@ namespace brigid {
           match,
           nullptr));
 
-      lua_pushvalue(L, match_index);
       lua_pushinteger(L, result);
-      return 2;
     }
 
     // regex:substitue(subject, replacement)
@@ -194,7 +180,7 @@ namespace brigid {
       lua_pop(L, 1);
 
       setfield(L, -1, "info", function<impl_info>());
-      setfield(L, -1, "match", function_int<impl_match>());
+      setfield(L, -1, "match", function<impl_match>());
       setfield(L, -1, "substitute", function<impl_substitute>());
     }
     lua_setfield(L, -2, "code");
