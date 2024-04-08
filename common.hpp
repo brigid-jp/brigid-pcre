@@ -68,6 +68,26 @@ namespace brigid {
     }
   };
 
+  template <int (*T)(lua_State*)>
+  struct function_int {
+    static int value(lua_State* L) {
+      try {
+        return T(L);
+      } catch (const pcre2_error& e) {
+        lua_pushnil(L);
+        lua_pushstring(L, e.what());
+        lua_pushinteger(L, e.code());
+        return 3;
+      } catch (const std::runtime_error& e) {
+        lua_pushnil(L);
+        lua_pushstring(L, e.what());
+        return 2;
+      } catch (const std::exception& e) {
+        return luaL_error(L, "%s", e.what());
+      }
+    }
+  };
+
   class string_reference {
   public:
     string_reference() : data_(), size_() {}
@@ -105,6 +125,13 @@ namespace brigid {
   inline void setfield(lua_State* L, int index, const char* key, function<T>) {
     index = absindex(L, index);
     lua_pushcfunction(L, function<T>::value);
+    lua_setfield(L, index, key);
+  }
+
+  template <int (*T)(lua_State*)>
+  inline void setfield(lua_State* L, int index, const char* key, function_int<T>) {
+    index = absindex(L, index);
+    lua_pushcfunction(L, function_int<T>::value);
     lua_setfield(L, index, key);
   }
 
