@@ -27,3 +27,5 @@ $(pcre2_package).ready: $(pcre2_package).fetch
 $(pcre2_library): $(pcre2_package).ready
 	(cd $(pcre2_package) && ./configure --prefix="`pwd`/../pcre2" --disable-shared --disable-jit)
 	make -C $(pcre2_package) -j 8 install-nodist_includeHEADERS install-libLTLIBRARIES
+	cp $(pcre2_package)/src/config.h pcre2/include/pcre2_config.h
+	cp $(pcre2_package)/src/pcre2_int*.h $(pcre2_package)/src/pcre2_ucp.h pcre2/include

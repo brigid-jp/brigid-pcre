@@ -9,6 +9,7 @@ OBJS = \
 	common.o \
 	code.o \
 	match_data.o \
+	match_data_subject.o \
 	symbols.o \
 	module.o
 

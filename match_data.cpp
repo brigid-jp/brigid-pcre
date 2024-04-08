@@ -1,6 +1,10 @@
 #include "common.hpp"
 
+#include <iostream>
+
 namespace brigid {
+  PCRE2_SPTR match_data_subject(const pcre2_match_data*);
+
   namespace {
     using self_t = match_data_t;
     using substring_t = std::unique_ptr<std::uint8_t, decltype(&pcre2_substring_free)>;
@@ -29,6 +33,10 @@ namespace brigid {
     void impl_get_by_number(lua_State* L) {
       auto self = self_t::checkudata(L, 1);
       auto number = luaL_checkinteger(L, 2);
+      if (!match_data_subject(self)) {
+        std::cerr << "match_data_subject is null\n";
+        return;
+      }
       std::uint8_t* data = nullptr;
       std::size_t size = 0;
       check(pcre2_substring_get_bynumber(self, number, &data, &size));

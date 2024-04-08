@@ -1,5 +1,7 @@
 #include "common.hpp"
 
+#include <iostream>
+
 namespace brigid {
   namespace {
     using self_t = code_t;
@@ -102,25 +104,39 @@ namespace brigid {
       return 2;
     }
 
-    // regex:match(subject, replacement)
-    // regex:match(subject, offset, replacement)
-    // regex:match(subject, offset, options, replacement)
+    // regex:substitue(subject, replacement)
+    // regex:substitue(subject, match, replacement)
+    // regex:substitue(subject, offset, replacement)
+    // regex:substitue(subject, offset, match, replacement)
+    // regex:substitue(subject, offset, options, replacement)
+    // regex:substitue(subject, offset, options, match, replacement)
     void impl_substitute(lua_State* L) {
       auto self = self_t::checkudata(L, 1);
       auto subject = checkstring(L, 2);
+
       lua_Integer offset = 1;
       std::uint32_t options = 0;
+      pcre2_match_data* match = nullptr;
       string_reference replacement;
 
       if (lua_type(L, 3) == LUA_TSTRING) {
         replacement = checkstring(L, 3);
       } else if (lua_type(L, 4) == LUA_TSTRING) {
-        offset = luaL_optinteger(L, 3, offset);
+        if (!(match = match_data_t::testudata(L, 3))) {
+          offset = luaL_optinteger(L, 3, offset);
+        }
         replacement = checkstring(L, 4);
+      } else if (lua_type(L, 5) == LUA_TSTRING) {
+        offset = luaL_optinteger(L, 3, offset);
+        if (!(match = match_data_t::testudata(L, 4))) {
+          options = luaL_optinteger(L, 4, options);
+        }
+        replacement = checkstring(L, 5);
       } else {
         offset = luaL_optinteger(L, 3, offset);
         options = luaL_optinteger(L, 4, options);
-        replacement = checkstring(L, 5);
+        match = match_data_t::testudata(L, 5);
+        replacement = checkstring(L, 6);
       }
 
       offset = translate_offset(offset, subject.size());
@@ -133,7 +149,7 @@ namespace brigid {
           subject.size(),
           offset,
           options | PCRE2_SUBSTITUTE_OVERFLOW_LENGTH,
-          nullptr,
+          match,
           nullptr,
           replacement.data_u8(),
           replacement.size(),
@@ -153,7 +169,7 @@ namespace brigid {
             subject.size(),
             offset,
             options,
-            nullptr,
+            match,
             nullptr,
             replacement.data_u8(),
             replacement.size(),
