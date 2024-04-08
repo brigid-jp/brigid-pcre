@@ -1,7 +1,5 @@
 #include "common.hpp"
 
-#include <iostream>
-
 namespace brigid {
   PCRE2_SPTR match_data_subject(const pcre2_match_data*);
 
@@ -23,25 +21,29 @@ namespace brigid {
     void impl_get_by_name(lua_State* L) {
       auto self = self_t::checkudata(L, 1);
       auto name = checkstring(L, 2);
-      std::uint8_t* data = nullptr;
-      std::size_t size = 0;
-      check(pcre2_substring_get_byname(self, name.data_u8(), &data, &size));
-      lua_pushlstring(L, reinterpret_cast<const char*>(data), size);
-      pcre2_substring_free(data);
+      std::size_t output_size = 0;
+      check(pcre2_substring_length_byname(self, name.data_u8(), &output_size));
+      ++output_size;
+      std::vector<std::uint8_t> output(output_size);
+      if (!match_data_subject(self)) {
+        throw pcre2_error(PCRE2_ERROR_NOSUBSTRING);
+      }
+      check(pcre2_substring_copy_byname(self, name.data_u8(), output.data(), &output_size));
+      lua_pushlstring(L, reinterpret_cast<const char*>(output.data()), output_size);
     }
 
     void impl_get_by_number(lua_State* L) {
       auto self = self_t::checkudata(L, 1);
       auto number = luaL_checkinteger(L, 2);
+      std::size_t output_size = 0;
+      check(pcre2_substring_length_bynumber(self, number, &output_size));
+      ++output_size;
+      std::vector<std::uint8_t> output(output_size);
       if (!match_data_subject(self)) {
-        std::cerr << "match_data_subject is null\n";
-        return;
+        throw pcre2_error(PCRE2_ERROR_NOSUBSTRING);
       }
-      std::uint8_t* data = nullptr;
-      std::size_t size = 0;
-      check(pcre2_substring_get_bynumber(self, number, &data, &size));
-      lua_pushlstring(L, reinterpret_cast<const char*>(data), size);
-      pcre2_substring_free(data);
+      check(pcre2_substring_copy_bynumber(self, number, output.data(), &output_size));
+      lua_pushlstring(L, reinterpret_cast<const char*>(output.data()), output_size);
     }
 
     void impl_get(lua_State* L) {
